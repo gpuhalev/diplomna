@@ -1,0 +1,47 @@
+body{
+	background:#CCC;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#wrapper{
+	width: 1200px;
+	border: 2px solid black;
+	margin: 15px auto;
+	overflow: hidden;
+	padding: 10px;
+}
+
+#header{
+	width: 100%;
+	overflow: hidden;
+}
+
+.header_button{
+	color: #FFF;
+	background-color: #333;
+	font-size: 20px;
+	font-weight: bold;
+	float: left;
+	margin-left: 10px;
+	padding: 5px;
+	border: solid black 1px;
+	border-radius: 5px;
+}
+
+.header_button:hover{
+	cursor:pointer;
+	color: #000;
+	background-color: #DDD;
+}
+
+.boxes{
+	display: block;
+}
+
+#continue_box.boxes{
+	display: none;
+}
+
+.boxes ul{
+	list-style-type: none;
+}
