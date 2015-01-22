@@ -16,10 +16,14 @@ body{
 	overflow: hidden;
 }
 
+#main_content{
+	padding: 20px 5px;
+}
+
 .header_button{
 	color: #FFF;
 	background-color: #333;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: bold;
 	float: left;
 	margin-left: 10px;
@@ -34,6 +38,16 @@ body{
 	background-color: #DDD;
 }
 
+td{
+	width:250px;
+}
+
+tr.form_header{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
 .boxes{
 	display: block;
 }
@@ -44,4 +58,13 @@ body{
 
 .boxes ul{
 	list-style-type: none;
+}
+
+text_form{
+	font-size: 20px;
+}
+
+text_form:hover{
+	cursor:pointer;
+	color: #FFF;
 }

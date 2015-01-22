@@ -18,7 +18,22 @@
 
 				<div class="boxes" id="start_box">
 					<form>
+						<div class=""><label>Event Name: <br><input type="text" name="event_name" id="event_name"></label>
 						<table>
+							<tr class="form_header">
+								<td>
+									Men Disciplines
+								</td>
+								
+								<td>
+									Women Disciplines
+								</td>
+
+								<td>
+									Team Disciplines
+								</td>
+							</tr>
+
 							<tr>
 								<td>
 									<ul class="menForm">
@@ -26,13 +41,17 @@
 								</td>
 
 								<td>
-									<ul class="womemForm">
+									<ul class="womenForm">
+									</ul>
+								</td>
+
+								<td>
+									<ul class="teamForm">
+										
 									</ul>
 								</td>
 							</tr>
 						</table>
-
-						<label><input type="checkbox" name="checkbox" value="value">Text</label>
 					</form>
 				</div>
 
