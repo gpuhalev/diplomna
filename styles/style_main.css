@@ -5,10 +5,11 @@ body{
 
 #wrapper{
 	width: 1200px;
-	border: 2px solid black;
-	margin: 15px auto;
+	margin: 0 auto;
 	overflow: hidden;
 	padding: 10px;
+	box-shadow: -15px 0 15px -15px inset;
+	background-color: #FFF;
 }
 
 #header{
@@ -68,3 +69,4 @@ text_form:hover{
 	cursor:pointer;
 	color: #FFF;
 }
+
