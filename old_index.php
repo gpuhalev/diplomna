@@ -19,6 +19,11 @@
         body {
             padding-top: 70px;
         }
+
+        table thead tr th{
+            text-align: center !important;
+        }
+
     </style>
 
 </head>

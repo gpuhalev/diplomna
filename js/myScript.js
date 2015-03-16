@@ -3,52 +3,72 @@ $(document).ready(function() {
 	var menArray = ["100m", "200m", "400m", "800m", "1500m", "3000m", "5000m", "10000m", "Hurdles", "Steeplechase", "Discus", "Javelin", "Shot Put", "Hammer Throw", "Pole Vault", "Long Jump", "High Jump", "Triple Jump", "Decathlon", "Relay"];
 	var womenArray = ["100m", "200m", "400m", "800m", "1500m", "3000m", "5000m", "10000m", "Hurdles", "Steeplechase", "Discus", "Javelin", "Shot Put", "Hammer Throw", "Pole Vault", "Long Jump", "High Jump", "Triple Jump", "Heptathlon", "Relay"];
 	var teamArray = ["Ranking"];
+	var myType;
+	var myEvent;
+	var myGender;
 
-	function fill_form(myArray){
-		var myList;
-		var myName;
-		if (myArray == menArray){
-			myList = $("ul[name=Men]");
-			myName = 'men';
-		}else if(myArray == womenArray){
-			myList = $("ul[name=Women]");
-			myName = 'women';
+	$( "#gendSelect" ).change(function() {
+		myGender = $( "#gendSelect option:selected" ).text();
+		if (myGender == 'Men'){
+			fillDropdown(menArray);
+		}else if(myGender == 'Women'){
+			fillDropdown(womenArray);
+		}else if(myGender == 'Team'){
+			fillDropdown(teamArray);
 		}else{
-			myList = $("ul[name=Team]");
-			myName = 'team';
+			clearDropdown();
 		}
-		
+	});
+
+	$( "#eventSelect" ).change(function() {
+		myEvent = $( "#eventSelect option:selected" ).text();
+	});
+
+	$( "#typeSelect" ).change(function() {
+		myType = $( "#typeSelect option:selected" ).text();
+	});
+
+	function fillDropdown(myArray){
+		var myDropdown = $('#eventSelect');
+		clearDropdown();
+
 		$.each(myArray, function(index, value){
-			var li = $("<li>");
-			var label = $("<label>");
-			var input = $('<input>').attr({id: value, type: 'radio', name: 'radioButon'});
-
-			
-			input.appendTo(label);
-
-			$('<textForm/>').html(value).appendTo(label);
-			label.appendTo(li);
-			myList.append(li);
+			myDropdown.append($('<option></option>').val(value).html(value));
 		});
 	}
 
-	fill_form(menArray);
-	fill_form(womenArray);
-	fill_form(teamArray);
+	function clearDropdown(){
+		$("#eventSelect option").each(function(){
+		    if($(this).attr("class") != "select"){
+		    	$(this).remove();
+		    }
+		});		
+	}
 
-	$('input[type="radio"]').click(function(){
-		if ($(this).is(':checked')){
-			var pName = $(this).closest('ul');
-			alert('You selected the ' + this.id + ' ' + $(pName[0]).attr('name') + ' event');
+	$("#mainForm").submit(function( event ) {
+		event.preventDefault();
+		console.log(myGender);
+		console.log(myEvent);
+		if(myGender == "--SELECT--" || jQuery.type(myGender) == undefined){
+			alert("Please, select type");
+		}else if(myEvent == "--SELECT--" || jQuery.type(myEvent) == undefined){
+			alert("Please, select event");
+		}else{
+			showPage("page2");
 		}
-  	});
+	});
 
-  	$('input#sb,tBttn').click(getMainForm()); 
-
-  	function getMainForm(){
-  		alert("k");
-		$.get('event.php', $('form#myForm').serialize(), function(data) {
-		});
+	function showPage(divId) {
+		$('.pages').each(function(index) {
+			if ($(this).attr("id") == divId) {
+				$(this).show(200);
+			}else {
+				$(this).hide(600);
+			}
+    	});
 	}
 
+	$('#prevBttn1').click(function(){
+		showPage("page1");
+	});
 });

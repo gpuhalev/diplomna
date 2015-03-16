@@ -13,17 +13,13 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/myStyle.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <style>
         body {
             padding-top: 70px;
         }
-
-        table thead tr th{
-            text-align: center !important;
-        }
-
     </style>
 
 </head>
@@ -38,52 +34,82 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1>Choose the event you want to work with</h1>
-                <p class="lead">Then click NEXT</p>
-                <div class="boxes" id="start_box">
+        	<div class="pages"  id="page1">
+	            <div class="col-lg-12 text-center">
+	               <h1>Choose the event you want to work with</h1>
+	               <p class="lead">Then click NEXT</p>
+	               <br><br><br>
 					<form role="form" id="mainForm">
-						<table class="table">
-							<thead>
-								<tr>
-									<th class=".text-center">
-										Men Disciplines
-									</th>
-									
-									<th class=".text-center">
-										Women Disciplines
-									</th>
+						<table class="table borderless">
+							<tr>
+								<td class="col-md-3">
+									<select class="form-control" id="gendSelect">
+										<option value="Select">--SELECT--</option>
+										<option value="Men">Men</option>
+										<option value="Women">Women</option>
+										<option value="Team">Team</option>
+									</select>
+								</td>
 
-									<th class=".text-center">
-										Team Disciplines
-									</th>
-								</tr>
-							</thead>
+								<td class="col-md-3">
+									<select class="form-control" id="eventSelect">
+										<option value="Select" class="select">--SELECT--</option>
+									</select>
+								</td>
+
+								<td class="col-md-3">
+									<select class="form-control" id="typeSelect">
+										<option value="Select">--SELECT--</option>
+										<option value="Start List">Start List</option>
+										<option value="Results">Results</option>
+									</select>
+								</td>
+							</tr>
 
 							<tr>
-								<td>
-									<ul name="Men" class="list-unstyled">
-									</ul>
+								<td class="col-md-3">
 								</td>
 
-								<td>
-									<ul name="Women" class="list-unstyled">
-									</ul>
+								<td class="col-md-3">
 								</td>
 
-								<td>
-									<ul name="Team" class="list-unstyled">
-										
-									</ul>
+								<td class="col-md-3">
+									<button type="submit" id="sbmtBttn" class="btn btn-default" style="float:right">NEXT</button>	
 								</td>
 							</tr>
 						</table>
-							<div class="col-sm-offset-6 col-sm-10">
-						    	<button type="submit" id="sbmtBttn" class="btn btn-default">NEXT</button>
-						    </div>
 					</form>
 				</div>
-            </div>
+			</div>
+
+			<div class="pages" id="page2">
+	            <div class="col-lg-12 text-center">
+	               <h1>Select the .XLS file you to use</h1>
+	               <p class="lead">Then click NEXT</p>
+	               <br><br><br>
+						<table class="table borderless">
+							<tr>
+								<td class="col-md-2">
+								</td>
+								<td class = "col-md-2">
+									<form id="uploadform">
+										<input type="file" class="filestyle" data-buttonName="btn-primary">
+									</form>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="col-md-2">
+									<button id="prevBttn1" class="btn btn-default" style="float:left">PREV</button>	
+								</td>
+
+								<td class="col-md-2">
+									<button type="submit" id="sbmtBttn2" class="btn btn-default" style="float:right">NEXT</button>	
+								</td>
+							</tr>
+						</table>
+				</div>
+			</div>
         </div>
         <!-- /.row -->
 
@@ -96,6 +122,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-filestyle.min.js"></script>
 
 </body>
 
