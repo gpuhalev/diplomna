@@ -71,4 +71,27 @@ $(document).ready(function() {
 	$('#prevBttn1').click(function(){
 		showPage("page1");
 	});
+
+	jQuery('#uploadForm').submit(function(){
+		// show loader [optional line]
+		$('#msg').html('uploading....').fadeIn();
+		if(document.getElementById('upload_frame') == null) {
+			// create iframe
+			$('body').append('<iframe id="upload_frame" name="upload_frame"></iframe>');
+
+			$('#upload_frame').on('load',function(){
+				if($(this).contents()[0].location.href.match($(this).parent('form').attr('action'))){
+					// display server response [optional line]
+					$('#server_response').html($(this).contents().find('html').html());
+					    // hide loader [optional line]
+					$('#msg').hide();
+				}
+			})
+
+			$(this).attr('method','post'); 
+			$(this).attr('enctype','multipart/form-data'); 
+			$(this).attr('target','upload_frame').submit(); 
+		} 
+	});
+
 });

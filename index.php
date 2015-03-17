@@ -92,8 +92,9 @@
 								<td class="col-md-2">
 								</td>
 								<td class = "col-md-2">
-									<form id="uploadform">
+									<form id="uploadForm">
 										<input type="file" class="filestyle" data-buttonName="btn-primary">
+										<input type="submit">
 									</form>
 								</td>
 							</tr>
@@ -109,6 +110,8 @@
 							</tr>
 						</table>
 				</div>
+				<div id="msg"></div>
+ 				<pre id="server_response"></pre>
 			</div>
         </div>
         <!-- /.row -->
