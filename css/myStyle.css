@@ -24,3 +24,9 @@ input[readonly] {
   background-color: white !important;
   cursor: text !important;
 }
+
+#upload_frame {
+ display:block;
+ height:0;
+ width:0;
+}

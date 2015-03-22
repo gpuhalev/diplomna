@@ -59,7 +59,6 @@
 
 								<td class="col-md-3">
 									<select class="form-control" id="typeSelect">
-										<option value="Select">--SELECT--</option>
 										<option value="Start List">Start List</option>
 										<option value="Results">Results</option>
 									</select>
@@ -84,19 +83,19 @@
 
 			<div class="pages" id="page2">
 	            <div class="col-lg-12 text-center">
-	               <h1>Select the .XLS file you to use</h1>
+	               <h1>Select the .XLS file you want to use</h1>
 	               <p class="lead">Then click NEXT</p>
 	               <br><br><br>
 						<table class="table borderless">
 							<tr>
-								<td class="col-md-2">
-								</td>
-								<td class = "col-md-2">
-									<form id="uploadForm">
+								<form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
+									<td class="col-md-2">
 										<input type="file" class="filestyle" data-buttonName="btn-primary">
-										<input type="submit">
-									</form>
-								</td>
+									</td>
+									<td class = "col-md-2">
+											<input type="submit" class="btn btn-success" style="float:right;">
+									</td>
+								</form>
 							</tr>
 
 							<tr>
@@ -109,9 +108,8 @@
 								</td>
 							</tr>
 						</table>
+						 <div id="response"	></div>
 				</div>
-				<div id="msg"></div>
- 				<pre id="server_response"></pre>
 			</div>
         </div>
         <!-- /.row -->

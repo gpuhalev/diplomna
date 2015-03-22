@@ -3,9 +3,11 @@ $(document).ready(function() {
 	var menArray = ["100m", "200m", "400m", "800m", "1500m", "3000m", "5000m", "10000m", "Hurdles", "Steeplechase", "Discus", "Javelin", "Shot Put", "Hammer Throw", "Pole Vault", "Long Jump", "High Jump", "Triple Jump", "Decathlon", "Relay"];
 	var womenArray = ["100m", "200m", "400m", "800m", "1500m", "3000m", "5000m", "10000m", "Hurdles", "Steeplechase", "Discus", "Javelin", "Shot Put", "Hammer Throw", "Pole Vault", "Long Jump", "High Jump", "Triple Jump", "Heptathlon", "Relay"];
 	var teamArray = ["Ranking"];
-	var myType;
+	var myType = "Start List";
 	var myEvent;
 	var myGender;
+
+//	jQuery('body').append('<iframe name="uploadiframe" onload="iframeUpload.complete();"></iframe>');
 
 	$( "#gendSelect" ).change(function() {
 		myGender = $( "#gendSelect option:selected" ).text();
@@ -49,9 +51,10 @@ $(document).ready(function() {
 		event.preventDefault();
 		console.log(myGender);
 		console.log(myEvent);
-		if(myGender == "--SELECT--" || jQuery.type(myGender) == undefined){
-			alert("Please, select type");
-		}else if(myEvent == "--SELECT--" || jQuery.type(myEvent) == undefined){
+		console.log(myType);
+		if(myGender == "--SELECT--" || jQuery.type(myGender) === 'undefined'){
+			alert("Please, select men/women/team");
+		}else if(myEvent == "--SELECT--" || jQuery.type(myEvent) === 'undefined'){
 			alert("Please, select event");
 		}else{
 			showPage("page2");
@@ -72,26 +75,24 @@ $(document).ready(function() {
 		showPage("page1");
 	});
 
-	jQuery('#uploadForm').submit(function(){
-		// show loader [optional line]
-		$('#msg').html('uploading....').fadeIn();
-		if(document.getElementById('upload_frame') == null) {
-			// create iframe
-			$('body').append('<iframe id="upload_frame" name="upload_frame"></iframe>');
-
-			$('#upload_frame').on('load',function(){
-				if($(this).contents()[0].location.href.match($(this).parent('form').attr('action'))){
-					// display server response [optional line]
-					$('#server_response').html($(this).contents().find('html').html());
-					    // hide loader [optional line]
-					$('#msg').hide();
-				}
-			})
-
-			$(this).attr('method','post'); 
-			$(this).attr('enctype','multipart/form-data'); 
-			$(this).attr('target','upload_frame').submit(); 
-		} 
-	});
-
+	var iframeUpload = {
+		init: function() {
+			jQuery('#uploadForm').prop('target','uploadiframe');
+			jQuery('#uploadForm').on('submit',iframeUpload.started);
+		},
+		started: function() {
+			jQuery('#response').removeClass().addClass('loading').html('Loading, please wait.').show();
+			jQuery('#uploadForm').hide();
+		},
+		complete: function(){
+			jQuery('#uploadForm').show();
+			var response = jQuery("iframe").contents().text();
+			if(response){
+				response = jQuery.parseJSON(response);
+				jQuery('#response').removeClass()
+				.addClass((response.status == 1) ? 'success' : 'error')
+				.html(response.message);
+			}
+		}
+	};
 });
