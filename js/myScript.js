@@ -69,4 +69,8 @@ $(document).ready(function() {
 	$('#prevBttn1').click(function(){
 		showPage("page1");
 	});
+
+	$('#startBttn').click(function(){
+		showPage("page1");
+	});
 });
