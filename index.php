@@ -14,13 +14,14 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/myStyle.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <style>
-        body {
-            padding-top: 70px;
-        }
-    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>	
+    <script src="js/myScript.js"></script>
+    <script src="js/iframeUpload.js"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			iframeUpload.init();
+		});
+	</script>
 
 </head>
 
@@ -88,9 +89,9 @@
 	               <br><br><br>
 						<table class="table borderless">
 							<tr>
-								<form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
+								<form action="upload2.php" method="post" enctype="multipart/form-data">
 									<td class="col-md-2">
-										<input type="file" class="filestyle" data-buttonName="btn-primary">
+										<input type="file" name="fileToUpload" class="filestyle" data-buttonName="btn-primary">
 									</td>
 									<td class = "col-md-2">
 											<input type="submit" class="btn btn-success" style="float:right;">
@@ -108,7 +109,6 @@
 								</td>
 							</tr>
 						</table>
-						 <div id="response"	></div>
 				</div>
 			</div>
         </div>
@@ -116,10 +116,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
-	<script src="js/myScript.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>

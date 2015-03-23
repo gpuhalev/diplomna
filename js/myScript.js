@@ -7,8 +7,6 @@ $(document).ready(function() {
 	var myEvent;
 	var myGender;
 
-//	jQuery('body').append('<iframe name="uploadiframe" onload="iframeUpload.complete();"></iframe>');
-
 	$( "#gendSelect" ).change(function() {
 		myGender = $( "#gendSelect option:selected" ).text();
 		if (myGender == 'Men'){
@@ -74,25 +72,4 @@ $(document).ready(function() {
 	$('#prevBttn1').click(function(){
 		showPage("page1");
 	});
-
-	var iframeUpload = {
-		init: function() {
-			jQuery('#uploadForm').prop('target','uploadiframe');
-			jQuery('#uploadForm').on('submit',iframeUpload.started);
-		},
-		started: function() {
-			jQuery('#response').removeClass().addClass('loading').html('Loading, please wait.').show();
-			jQuery('#uploadForm').hide();
-		},
-		complete: function(){
-			jQuery('#uploadForm').show();
-			var response = jQuery("iframe").contents().text();
-			if(response){
-				response = jQuery.parseJSON(response);
-				jQuery('#response').removeClass()
-				.addClass((response.status == 1) ? 'success' : 'error')
-				.html(response.message);
-			}
-		}
-	};
 });
