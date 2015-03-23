@@ -40,7 +40,7 @@
 	               <h1>Choose the event you want to work with</h1>
 	               <p class="lead">Then click NEXT</p>
 	               <br><br><br>
-					<form role="form" id="mainForm">
+					<form id="mainForm">
 						<table class="table borderless">
 							<tr>
 								<td class="col-md-3">

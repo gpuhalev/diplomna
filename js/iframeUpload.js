@@ -1,12 +1,12 @@
 var iframeUpload = {
     init: function() {
-        jQuery('body').append('<iframe name="uploadiframe" onload="iframeUpload.complete();"></iframe>');
+        jQuery('body').append('<iframe class="hidden" name="uploadiframe" onload="iframeUpload.complete();"></iframe>');
         jQuery('form').prop('target','uploadiframe');
         jQuery('form').on('submit',iframeUpload.started);
     },
     started: function() {
         jQuery('#response').removeClass().addClass('loading').html('Loading, please wait.').show();
-        jQuery('form').hide()
+        //jQuery('form.').hide()
     },
     complete: function(){
         jQuery('form').show();

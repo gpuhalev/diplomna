@@ -47,9 +47,6 @@ $(document).ready(function() {
 
 	$("#mainForm").submit(function( event ) {
 		event.preventDefault();
-		console.log(myGender);
-		console.log(myEvent);
-		console.log(myType);
 		if(myGender == "--SELECT--" || jQuery.type(myGender) === 'undefined'){
 			alert("Please, select men/women/team");
 		}else if(myEvent == "--SELECT--" || jQuery.type(myEvent) === 'undefined'){

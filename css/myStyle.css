@@ -29,6 +29,6 @@ input[readonly] {
   cursor: text !important;
 }
 
-iframe {
+iframe.hidden{
 	display: none;
 }
